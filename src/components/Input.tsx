@@ -21,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
           ${error ? 'border-red-500 focus:border-red-500 dark:border-red-400' : 'border-gray-300 focus:border-blue-500 dark:border-gray-600 dark:focus:border-blue-400'}
           ${props.disabled ? 'bg-gray-100 cursor-not-allowed dark:bg-gray-800' : 'bg-white dark:bg-gray-900'}
           dark:text-white
-          ${props.className || ''}
+          ${className}
         `}
       />
       {error && <span className="text-xs text-red-500 dark:text-red-400">{error}</span>}

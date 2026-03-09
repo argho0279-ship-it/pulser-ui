@@ -10,17 +10,23 @@ export const formSchema = z.object({
 
 export type FormSchema = z.infer<typeof formSchema>;
 
-export interface FormProps<T extends z.ZodType<any>> {
-  schema?: T;
-  defaultValues?: Partial<z.infer<T>>;
-  onSubmit: (data: z.infer<T>) => void;
+export interface FormProps<TValues extends Record<string, any> = FormSchema> {
+  schema?: z.ZodType<TValues>;
+  defaultValues?: Partial<TValues>;
+  onSubmit: (data: TValues) => void;
   children: React.ReactNode;
   className?: string;
 }
 
-export const Form = <T extends z.ZodType<any>>({ schema = formSchema as T, defaultValues, onSubmit, children, className }: FormProps<T>) => {
-  const methods = useForm({
-    resolver: zodResolver(schema),
+export const Form = <TValues extends Record<string, any> = FormSchema>({
+  schema = formSchema as unknown as z.ZodType<TValues>,
+  defaultValues,
+  onSubmit,
+  children,
+  className,
+}: FormProps<TValues>) => {
+  const methods = useForm<TValues>({
+    resolver: zodResolver(schema as any) as any,
     defaultValues: defaultValues as any,
   });
 

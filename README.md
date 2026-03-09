@@ -18,7 +18,7 @@ A modern, accessible React component library built with Tailwind CSS and TypeScr
 ### Using npm
 
 ```bash
-npm install react-sodium-ui-evan react react-dom
+npm i react-sodium-ui
 ```
 
 
@@ -58,19 +58,7 @@ export default defineConfig({
 })
 ```
 
-3. Configure your `tailwind.config.ts`:
 
-```ts
-import type { Config } from "tailwindcss";
-
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/react-sodium-ui-evan/**/*.{js,ts,jsx,tsx}",
-  ],
-} satisfies Config;
-```
 
 4. Import react-sodium-ui UI components in your React app:
 

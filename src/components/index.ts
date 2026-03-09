@@ -3,7 +3,7 @@ export type { ButtonProps } from './Button';
 export { Input } from './Input';
 export type { InputProps } from './Input';
 export { Form, Controller, formSchema } from './Form';
-export type { FormProps, ControllerProps, FormSchema } from './Form';
+export type { FormProps, FormSchema } from './Form';
 export { Navbar, NavbarItem } from './Navbar';
 export type { NavbarProps, NavbarItemProps } from './Navbar';
 export { HamburgerMenu, MobileMenu } from './HamburgerMenu';
