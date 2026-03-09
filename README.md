@@ -1,50 +1,51 @@
-# react-sodium-ui UI
+# pulser-ui
 
-A modern, accessible React component library built with Tailwind CSS and TypeScript. react-sodium-ui UI provides a collection of unstyled, composable components that are perfect for building beautiful, responsive user interfaces.
+A modern, accessible React component library built with Tailwind CSS and TypeScript. pulser-ui provides a curated collection of composable, fully-typed components designed for building beautiful, responsive user interfaces — fast.
 
-## Features
+---
 
-- 🎨 **Tailwind CSS Styled** - Built with Tailwind CSS for consistent, customizable styling
-- 📱 **Responsive Design** - Mobile-first approach with responsive utilities
-- 🌙 **Dark Mode Support** - All components support light and dark modes
-- ♿ **Accessible** - WCAG compliant components with proper ARIA attributes
-- 📖 **Storybook Integration** - Interactive component documentation and testing
-- 🔒 **TypeScript** - Full TypeScript support with complete type definitions
-- 📦 **Tree-Shakeable** - Optimized for minimal bundle size with ES modules
-- ⚡ **Vite + Rollup** - Fast development experience and optimized production builds
+## ✨ Features
 
-## Installation
+- 🎨 **Tailwind CSS Styled** — Built on Tailwind CSS for consistent, highly customizable styling
+- 📱 **Responsive by Default** — Mobile-first design with responsive utilities baked in
+- 🌙 **Dark Mode Support** — Every component supports both light and dark modes out of the box
+- ♿ **Accessible** — WCAG-compliant components with proper ARIA attributes throughout
+- 📖 **Storybook Integration** — Interactive component documentation and visual testing
+- 🔒 **TypeScript First** — Complete type definitions for every component and prop
+- 📦 **Tree-Shakeable** — Optimized for minimal bundle size using ES modules
+- ⚡ **Vite + Rollup** — Fast development experience and optimized production builds
 
-### Using npm
+---
+
+## 📦 Installation
 
 ```bash
-npm i react-sodium-ui
+npm i pulser-ui
 ```
 
+### Peer Dependencies
 
-```
+Ensure the following are installed in your project:
 
-## Peer Dependencies
+| Package | Version |
+|---|---|
+| `react` | >= 18.2.0 |
+| `react-dom` | >= 18.2.0 |
+| `react-hook-form` | >= 7.0.0 |
+| `zod` | >= 3.0.0 |
+| `tailwindcss` | >= 4.0.0 |
 
-This library requires the following peer dependencies to be installed in your project:
+---
 
-- `react` >= 18.2.0
-- `react-dom` >= 18.2.0
-- `react-hook-form` >= 7.0.0
-- `zod` >= 3.0.0
-- `tailwindcss` >= 4.0.0
+## 🚀 Quick Start
 
-## Quick Start
-
-### Basic Setup
-
-1. Install Tailwind CSS v4 (required):
+**1. Install Tailwind CSS v4:**
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
 ```
 
-2. Configure your `vite.config.ts` (add the Tailwind plugin):
+**2. Add the Tailwind plugin to your `vite.config.ts`:**
 
 ```ts
 import { defineConfig } from 'vite'
@@ -58,12 +59,10 @@ export default defineConfig({
 })
 ```
 
-
-
-4. Import react-sodium-ui UI components in your React app:
+**3. Import and use components:**
 
 ```tsx
-import { Button, Input, Form } from 'react-sodium-ui-evan';
+import { Button, Input, Form } from 'pulser-ui';
 
 function App() {
   return (
@@ -75,23 +74,24 @@ function App() {
 }
 ```
 
-## Components
+---
+
+## 🧩 Components
 
 ### Form Components
 
-#### **Input**
+#### `Input`
 
-A flexible input field component with optional label and error display.
+A flexible input field with optional label and inline error display.
 
-**Props:**
-- `label?` - Label text displayed above the input
-- `error?` - Error message displayed below the input
-- All standard HTML input attributes (type, placeholder, disabled, etc.)
-
-**Example:**
+| Prop | Type | Description |
+|---|---|---|
+| `label` | `string` | Label text displayed above the input |
+| `error` | `string` | Error message displayed below the input |
+| `...rest` | `HTMLInputAttributes` | All standard HTML input attributes |
 
 ```tsx
-import { Input } from 'react-sodium-ui-evan';
+import { Input } from 'pulser-ui';
 
 <Input
   label="Email"
@@ -101,19 +101,20 @@ import { Input } from 'react-sodium-ui-evan';
 />
 ```
 
-#### **Form**
+---
 
-A form wrapper component with built-in validation using React Hook Form and Zod.
+#### `Form`
 
-**Props:**
-- `schema` - Zod validation schema
-- `onSubmit` - Form submission handler
-- `children` - Form fields
+A form wrapper with built-in validation powered by React Hook Form and Zod.
 
-**Example:**
+| Prop | Type | Description |
+|---|---|---|
+| `schema` | `ZodSchema` | Zod validation schema |
+| `onSubmit` | `(data) => void` | Submission handler receiving validated data |
+| `children` | `ReactNode` | Form fields |
 
 ```tsx
-import { Form, Input } from 'react-sodium-ui-evan';
+import { Form, Input } from 'pulser-ui';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -134,44 +135,46 @@ function MyForm() {
 }
 ```
 
-#### **Button**
+---
 
-A versatile button component with multiple variants and sizes.
+#### `Button`
 
-**Props:**
-- `variant?` - `'primary'` | `'secondary'` | `'outline'` (default: `'primary'`)
-- `size?` - `'small'` | `'medium'` | `'large'` (default: `'medium'`)
-- `onClick?` - Click handler
-- `children` - Button text or content
+A versatile button with multiple variants and sizes.
 
-**Example:**
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'primary' \| 'secondary' \| 'outline'` | `'primary'` |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` |
+| `onClick` | `() => void` | — |
+| `children` | `ReactNode` | — |
 
 ```tsx
-import { Button } from 'react-sodium-ui-evan';
+import { Button } from 'pulser-ui';
 
 <Button variant="primary" size="large" onClick={() => console.log('Clicked!')}>
   Submit
 </Button>
 ```
 
+---
+
 ### Layout Components
 
-#### **Card**
+#### `Card`
 
-A flexible card component with composable sub-components.
+A flexible card container with composable sub-components.
 
-**Sub-components:**
-- `Card` - Container
-- `CardHeader` - Header section
-- `CardTitle` - Title text
-- `CardDescription` - Description text
-- `CardContent` - Main content area
-- `CardFooter` - Footer section
-
-**Example:**
+| Sub-component | Description |
+|---|---|
+| `Card` | Root container |
+| `CardHeader` | Header section |
+| `CardTitle` | Title text |
+| `CardDescription` | Supporting description text |
+| `CardContent` | Main content area |
+| `CardFooter` | Footer section |
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardContent } from 'react-sodium-ui-evan';
+import { Card, CardHeader, CardTitle, CardContent } from 'pulser-ui';
 
 <Card>
   <CardHeader>
@@ -183,26 +186,31 @@ import { Card, CardHeader, CardTitle, CardContent } from 'react-sodium-ui-evan';
 </Card>
 ```
 
-#### **Modal**
+---
 
-A customizable modal dialog component with composable sections.
+#### `Modal`
 
-**Sub-components:**
-- `Modal` - Container
-- `ModalTrigger` - Opens the modal
-- `ModalContent` - Modal content wrapper
-- `ModalHeader` - Header section
-- `ModalTitle` - Title
-- `ModalDescription` - Description
-- `ModalBody` - Body content
-- `ModalFooter` - Footer section
-- `ModalClose` - Close button
-- `useModal` - Hook to control modal programmatically
+A customizable modal dialog with composable sections and programmatic control.
 
-**Example:**
+| Sub-component | Description |
+|---|---|
+| `Modal` | Root container |
+| `ModalTrigger` | Element that opens the modal |
+| `ModalContent` | Modal content wrapper |
+| `ModalHeader` | Header section |
+| `ModalTitle` | Title |
+| `ModalDescription` | Description |
+| `ModalBody` | Body content |
+| `ModalFooter` | Footer section |
+| `ModalClose` | Close button |
+| `useModal` | Hook for programmatic control |
 
 ```tsx
-import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle, ModalBody, ModalFooter, ModalClose } from 'react-sodium-ui-evan';
+import {
+  Modal, ModalTrigger, ModalContent,
+  ModalHeader, ModalTitle, ModalBody,
+  ModalFooter, ModalClose
+} from 'pulser-ui';
 
 <Modal>
   <ModalTrigger>Open Modal</ModalTrigger>
@@ -218,20 +226,16 @@ import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle, ModalBody, 
 </Modal>
 ```
 
+---
+
 ### Navigation Components
 
-#### **Navbar**
+#### `Navbar`
 
 A responsive navigation bar with customizable items.
 
-**Sub-components:**
-- `Navbar` - Container
-- `NavbarItem` - Individual navigation item
-
-**Example:**
-
 ```tsx
-import { Navbar, NavbarItem } from 'react-sodium-ui';
+import { Navbar, NavbarItem } from 'pulser-ui';
 
 <Navbar>
   <NavbarItem href="/">Home</NavbarItem>
@@ -239,22 +243,26 @@ import { Navbar, NavbarItem } from 'react-sodium-ui';
 </Navbar>
 ```
 
-#### **Dropdown**
+---
 
-A flexible dropdown menu component.
+#### `Dropdown`
 
-**Sub-components:**
-- `Dropdown` - Container
-- `DropdownTrigger` - Trigger element
-- `DropdownMenu` - Menu container
-- `DropdownItem` - Menu item
-- `DropdownSeparator` - Visual separator
-- `DropdownLabel` - Menu label
+A flexible dropdown menu with full keyboard and accessibility support.
 
-**Example:**
+| Sub-component | Description |
+|---|---|
+| `Dropdown` | Root container |
+| `DropdownTrigger` | Trigger element |
+| `DropdownMenu` | Menu container |
+| `DropdownItem` | Individual menu item |
+| `DropdownSeparator` | Visual divider |
+| `DropdownLabel` | Non-interactive label |
 
 ```tsx
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSeparator } from 'react-sodium-ui';
+import {
+  Dropdown, DropdownTrigger, DropdownMenu,
+  DropdownItem, DropdownSeparator
+} from 'pulser-ui';
 
 <Dropdown>
   <DropdownTrigger>
@@ -269,22 +277,19 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSeparato
 </Dropdown>
 ```
 
-#### **HamburgerMenu**
+---
 
-Responsive hamburger menu for mobile navigation.
+#### `HamburgerMenu`
 
-**Sub-components:**
-- `HamburgerMenu` - Main component
-- `MobileMenu` - Mobile menu content
+A responsive hamburger menu for mobile navigation.
 
-**Props (HamburgerMenu):**
-- `isOpen?` - Whether menu is open
-- `onToggle?` - Toggle handler
-
-**Example:**
+| Prop | Type | Description |
+|---|---|---|
+| `isOpen` | `boolean` | Whether the menu is currently open |
+| `onToggle` | `() => void` | Toggle handler |
 
 ```tsx
-import { HamburgerMenu, MobileMenu } from 'react-sodium-ui';
+import { HamburgerMenu, MobileMenu } from 'pulser-ui';
 import { useState } from 'react';
 
 function MyComponent() {
@@ -304,72 +309,76 @@ function MyComponent() {
 }
 ```
 
+---
+
 ### Data Display Components
 
-#### **Avatar**
+#### `Avatar`
 
-A profile picture component with fallback text.
+A profile picture component with graceful fallback to initials.
 
-**Sub-components:**
-- `Avatar` - Single avatar
-- `AvatarGroup` - Multiple avatars
-
-**Props:**
-- `src?` - Image source URL
-- `alt?` - Alt text for image
-- `fallback?` - Fallback text for initials
-- `size?` - `'small'` | `'medium'` | `'large'` (default: `'medium'`)
-
-**Example:**
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `src` | `string` | — | Image source URL |
+| `alt` | `string` | — | Alt text for the image |
+| `fallback` | `string` | — | Text to display when no image is available |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Avatar size |
 
 ```tsx
-import { Avatar } from 'react-sodium-ui';
+import { Avatar } from 'pulser-ui';
 
-<Avatar src="https://example.com/avatar.jpg" alt="User Avatar" fallback="John Doe" size="medium" />
+<Avatar
+  src="https://example.com/avatar.jpg"
+  alt="User Avatar"
+  fallback="John Doe"
+  size="medium"
+/>
 ```
 
-#### **Progress**
+You can also group multiple avatars using `AvatarGroup`.
 
-Display progress, loading states, and skeletons.
+---
 
-**Sub-components:**
-- `Progress` - Progress bar
-- `Spinner` - Loading spinner
-- `Skeleton` - Skeleton loader
+#### `Progress`
 
-**Props (Progress):**
-- `value?` - Current value
-- `max?` - Maximum value (default: 100)
-- `variant?` - `'default'` | `'success'` | `'warning'` | `'error'`
-- `size?` - `'small'` | `'medium'` | `'large'`
-- `showValue?` - Show percentage text
+Display progress states, loading spinners, and content skeletons.
 
-**Example:**
+| Sub-component | Description |
+|---|---|
+| `Progress` | Progress bar |
+| `Spinner` | Loading spinner |
+| `Skeleton` | Skeleton loader for content placeholders |
+
+**`Progress` Props:**
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number` | — | Current progress value |
+| `max` | `number` | `100` | Maximum value |
+| `variant` | `'default' \| 'success' \| 'warning' \| 'error'` | `'default'` | Visual style |
+| `size` | `'small' \| 'medium' \| 'large'` | — | Size |
+| `showValue` | `boolean` | — | Show percentage label |
 
 ```tsx
-import { Progress, Spinner, Skeleton } from 'react-sodium-ui';
+import { Progress, Spinner, Skeleton } from 'pulser-ui';
 
 <Progress value={75} variant="success" showValue />
 <Spinner size="medium" />
 <Skeleton width="w-32" height="h-4" />
 ```
 
-#### **Alert**
+---
 
-Informational alert box with composable sections.
+#### `Alert`
 
-**Sub-components:**
-- `Alert` - Container
-- `AlertTitle` - Title
-- `AlertDescription` - Description
+An informational alert box with composable sections.
 
-**Props (Alert):**
-- `variant?` - `'default'` | `'success'` | `'warning'` | `'error'` | `'info'`
-
-**Example:**
+| Prop | Type | Description |
+|---|---|---|
+| `variant` | `'default' \| 'success' \| 'warning' \| 'error' \| 'info'` | Alert style |
 
 ```tsx
-import { Alert, AlertTitle, AlertDescription } from 'react-sodium-ui';
+import { Alert, AlertTitle, AlertDescription } from 'pulser-ui';
 
 <Alert variant="success">
   <AlertTitle>Success!</AlertTitle>
@@ -377,20 +386,14 @@ import { Alert, AlertTitle, AlertDescription } from 'react-sodium-ui';
 </Alert>
 ```
 
-#### **Toast**
+---
 
-Toast notification system.
+#### `Toast`
 
-**Components:**
-- `Toast` - Individual toast
-- `ToastProvider` - Provider wrapper
-- `ToastContainer` - Toast container
-- `useToast` - Hook to trigger toasts
-
-**Example:**
+A toast notification system with a provider pattern and hook-based API.
 
 ```tsx
-import { ToastProvider, ToastContainer, useToast } from 'react-sodium-ui';
+import { ToastProvider, ToastContainer, useToast } from 'pulser-ui';
 
 function App() {
   return (
@@ -412,50 +415,54 @@ function MyComponent() {
 }
 ```
 
-#### **Slider**
+---
 
-Sidebar navigation component with slide-out panel.
+#### `Slider`
 
-**Sub-components:**
-- `Slider` - Container
-- `SliderLogo` - Logo/branding
-- `SliderItem` - Menu item
-- `SliderTrigger` - Trigger to open/close
-- `SliderLink` - Navigation link
-- `SliderButton` - Action button
-- `SliderToggle` - Toggle button
+A sidebar navigation component with a slide-out panel.
 
-**Example:**
+| Sub-component | Description |
+|---|---|
+| `Slider` | Root container |
+| `SliderLogo` | Logo or branding area |
+| `SliderItem` | Individual menu item |
+| `SliderTrigger` | Trigger to open/close the slider |
+| `SliderLink` | Navigation link |
+| `SliderButton` | Action button |
+| `SliderToggle` | Toggle button |
 
 ```tsx
-import { Slider, SliderLogo, SliderTrigger, SliderLink } from 'react-sodium-ui';
+import { Slider, SliderLogo, SliderTrigger, SliderLink } from 'pulser-ui';
 
-<Slider content={
-  <nav>
-    <SliderLink>Home</SliderLink>
-    <SliderLink>About</SliderLink>
-  </nav>
-}>
+<Slider
+  content={
+    <nav>
+      <SliderLink>Home</SliderLink>
+      <SliderLink>About</SliderLink>
+    </nav>
+  }
+>
   <SliderLogo>My App</SliderLogo>
   <SliderTrigger>Open Menu</SliderTrigger>
 </Slider>
 ```
 
-#### **ImageSlider**
+---
 
-Specialized image carousel component.
+#### `ImageSlider`
 
-**Props:**
-- `images` - Array of image objects with `src`, `alt?`, `caption?`
-- `autoPlay?` - Auto-play slides
-- `interval?` - Auto-play interval in ms
-- `showDots?` - Show navigation dots
-- `showArrows?` - Show navigation arrows
+A specialized image carousel component.
 
-**Example:**
+| Prop | Type | Description |
+|---|---|---|
+| `images` | `{ src: string; alt?: string; caption?: string }[]` | Array of image objects |
+| `autoPlay` | `boolean` | Auto-advance slides |
+| `interval` | `number` | Auto-play interval in ms |
+| `showDots` | `boolean` | Show navigation dots |
+| `showArrows` | `boolean` | Show previous/next arrows |
 
 ```tsx
-import { ImageSlider } from 'react-sodium-ui';
+import { ImageSlider } from 'pulser-ui';
 
 const images = [
   { src: 'image1.jpg', alt: 'Image 1', caption: 'First image' },
@@ -465,31 +472,32 @@ const images = [
 <ImageSlider images={images} autoPlay showDots showArrows />
 ```
 
+---
+
 ### Interactive Components
 
-#### **Tooltip**
+#### `Tooltip`
 
-A tooltip component for helpful information display.
+A tooltip for surfacing helpful contextual information on hover.
 
-**Props:**
-- `content` - Tooltip text
-- `children` - Trigger element
-- `position?` - `'top'` | `'bottom'` | `'left'` | `'right'` (default: `'top'`)
-- `delay?` - Show delay in ms (default: 200)
-
-**Example:**
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `content` | `string` | — | Tooltip text |
+| `children` | `ReactNode` | — | Trigger element |
+| `position` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` | Tooltip placement |
+| `delay` | `number` | `200` | Show delay in ms |
 
 ```tsx
-import { Tooltip } from 'react-sodium-ui';
+import { Tooltip } from 'pulser-ui';
 
 <Tooltip content="This is a helpful tooltip" position="top" delay={300}>
   <button>Hover me</button>
 </Tooltip>
 ```
 
-## Development
+---
 
-### Build Setup
+## 🛠 Development
 
 ```bash
 # Install dependencies
@@ -504,7 +512,7 @@ npm run build
 # Preview production build
 npm run preview
 
-# Start Storybook (component documentation)
+# Start Storybook
 npm run storybook
 
 # Build Storybook
@@ -515,7 +523,7 @@ npm run build-storybook
 
 ```
 src/
-├── components/          # All component files
+├── components/
 │   ├── Button.tsx
 │   ├── Input.tsx
 │   ├── Card.tsx
@@ -531,25 +539,27 @@ src/
 │   ├── Dropdown.tsx
 │   ├── HamburgerMenu.tsx
 │   ├── Tooltip.tsx
-│   ├── Input.stories.tsx  # Storybook stories
-│   └── index.ts           # Exports
-├── index.css            # Global styles
-└── index.ts             # Library entry point
+│   ├── Input.stories.tsx
+│   └── index.ts
+├── index.css
+└── index.ts
 ```
 
-## Build Output
+### Build Output
 
-The library is built as both ES modules and UMD format:
+| File | Format | Description |
+|---|---|---|
+| `dist/pulser-ui.js` | ES Module | Modern JavaScript modules |
+| `dist/pulser-ui.umd.cjs` | UMD | Universal module for browsers and Node.js |
+| `dist/index.d.ts` | TypeScript | Complete type definitions |
 
-- **ES Module**: `dist/react-sodium-ui.js` - Modern JavaScript modules
-- **UMD**: `dist/react-sodium-ui.umd.cjs` - Universal module for browsers and Node.js
-- **Types**: `dist/index.d.ts` - TypeScript definitions
+---
 
-## Customization
+## 🎨 Customization
 
 ### Theming
 
-All components use Tailwind CSS classes and respect your Tailwind configuration. Customize colors, spacing, and other design tokens in your `tailwind.config.js`:
+All components use standard Tailwind CSS classes and respect your project's Tailwind configuration. Extend your design tokens in `tailwind.config.js`:
 
 ```js
 export default {
@@ -566,7 +576,7 @@ export default {
 
 ### Dark Mode
 
-Dark mode is built into all components using Tailwind's `dark:` prefix. Enable it in your `tailwind.config.js`:
+Dark mode is supported by all components via Tailwind's `dark:` prefix. Enable it in your config:
 
 ```js
 export default {
@@ -574,25 +584,24 @@ export default {
 }
 ```
 
-## Browser Support
+---
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## 🌐 Browser Support
 
-## License
-
-MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Support
-
-For issues, feature requests, or questions, please open an issue on GitHub.
+Chrome, Firefox, Safari, and Edge — all latest versions.
 
 ---
 
-**react-sodium-ui UI** - Built with ❤️ using React and Tailwind CSS
+## 📄 License
+
+MIT
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to open a Pull Request or file an issue on GitHub.
+
+---
+
+Built with ❤️ using React
