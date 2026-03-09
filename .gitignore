@@ -1,0 +1,14 @@
+node_modules
+dist
+storybook-static
+.env
+.env.local
+.DS_Store
+npm-debug.log
+npm-error.log
+.vscode
+.idea
+.turbo
+coverage
+build
+*.tsbuildinfo
