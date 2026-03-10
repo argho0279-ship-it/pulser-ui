@@ -625,4 +625,11 @@ Pulser UI is a modern React component library designed to help developers build 
 Visit the demo site to preview components, explore the design system, and see how **Pulser UI** can accelerate your development workflow.
 ---
 
+## 📦 NPM Package
+
+Install **Pulser UI** from npm:
+
+👉 https://www.npmjs.com/package/@covert/pulser-ui
+---
+
 Built with ❤️ using React
